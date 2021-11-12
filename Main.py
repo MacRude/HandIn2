@@ -1,4 +1,5 @@
 import server
+import ObjectTrainer
 def greet(who='World'):
     print(f'Hello {who}!')
 
