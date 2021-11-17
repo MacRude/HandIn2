@@ -1,12 +1,10 @@
-'''
-	Simple socket server using threads
-'''
-
 import socket
 import sys
 
 HOST = ''	# Symbolic name, meaning all available interfaces
 PORT = 8888	# Arbitrary non-privileged port
+#If want to connect to server type: telnet localhost 8888 
+# in new client
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print('Socket created')
