@@ -1,5 +1,7 @@
 import server
 import ObjectTrainer
+import emojis
+
 def greet(who='World'):
     print(f'Hello {who}!')
 
