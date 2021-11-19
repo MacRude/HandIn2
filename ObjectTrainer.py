@@ -22,11 +22,15 @@ while True:
 
         #Calling the predict function using keras
         prediction = model.predict(img_array)
+        print(prediction)
         labels = ['Phone', 'Keyboard','Chair','Happy face','Pen','Book','Thumbs up','Eye','Balloon']
         print(labels[np.argmax(prediction)])
+        idx = np.argmax(prediction) ## argmax returns the value of the label with the highest confifence
+        print(labels[idx])
         cv2.imshow("Prediction", frame)
         key=cv2.waitKey(1)
         if key == ord('q'):
                 break
+        
 video.release()
 cv2.destroyAllWindows()
