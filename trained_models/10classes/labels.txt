@@ -1,0 +1,9 @@
+0 Phone
+1 Keyboard
+2 Chair
+3 Happy face
+4 Pen
+5 Book
+6 Thumbs up
+7 Eye
+8 Balloon
