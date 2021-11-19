@@ -18,13 +18,12 @@ while True:
         im = im.resize((224,224))
         img_array = np.array(im)
         img_array = np.expand_dims(img_array, axis=0)
+        img_array = (img_array.astype(np.float32) / 127.0) - 1
 
         #Calling the predict function using keras
         prediction = model.predict(img_array)
-        labels = ['phone', 'water bottle']
-        print(np.argmax(prediction)) # get index of max
+        labels = ['Phone', 'Keyboard','Chair','Happy face','Pen','Book','Thumbs up','Eye','Balloon']
         print(labels[np.argmax(prediction)])
-
         cv2.imshow("Prediction", frame)
         key=cv2.waitKey(1)
         if key == ord('q'):
