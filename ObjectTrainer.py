@@ -3,8 +3,10 @@ import numpy as np
 from PIL import Image
 from keras import models
 import tensorflow as tf
+import os
 
-model = models.load_model('/Users/danielnoren/Desktop/converted_keras/keras_model.h5')
+cwd = os.getcwd() 
+model = models.load_model(cwd + '/trained_models/10classes/keras_model.h5')
 video = cv2.VideoCapture(0)
 
 while True:
