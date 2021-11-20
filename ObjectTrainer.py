@@ -4,12 +4,15 @@ from PIL import Image
 from keras import models
 import tensorflow as tf
 import os
+from emoji import emojize
 
 cwd = os.getcwd() 
 model = models.load_model(cwd + '/trained_models/10classes/keras_model.h5')
 video = cv2.VideoCapture(0)
 
-while True:
+matrix = np.zeros([1,9])
+for i in range (30):
+#while True:
         _, frame = video.read()
         #Convert the captured frame into RGB
         im = Image.fromarray(frame, 'RGB')
@@ -23,14 +26,20 @@ while True:
         #Calling the predict function using keras
         prediction = model.predict(img_array)
         print(prediction)
-        labels = ['Phone', 'Keyboard','Chair','Happy face','Pen','Book','Thumbs up','Eye','Balloon']
+        labels = ['mobile_phone', 'keyboard','chair','grinning_face','pencil','closed_book','thumbs_up','eye','balloon']
         print(labels[np.argmax(prediction)])
-        idx = np.argmax(prediction) ## argmax returns the value of the label with the highest confifence
-        print(labels[idx])
         cv2.imshow("Prediction", frame)
         key=cv2.waitKey(1)
         if key == ord('q'):
                 break
-        
+
+        #Numpy array
+        matrix = np.vstack((matrix, prediction))
+
 video.release()
 cv2.destroyAllWindows()
+average = np.average(matrix, axis=0)
+print(emojize('":' +labels[average.argmax(axis=0)]+':"'))
+
+
+
