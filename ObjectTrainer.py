@@ -11,8 +11,8 @@ model = models.load_model(cwd + '/trained_models/10classes/keras_model.h5')
 video = cv2.VideoCapture(0)
 
 matrix = np.zeros([1,9])
-for i in range (30):
-#while True:
+
+while True:
         _, frame = video.read()
         #Convert the captured frame into RGB
         im = Image.fromarray(frame, 'RGB')
@@ -25,9 +25,9 @@ for i in range (30):
 
         #Calling the predict function using keras
         prediction = model.predict(img_array)
-        print(prediction)
+        #print(prediction)
         labels = ['mobile_phone', 'keyboard','chair','grinning_face','pencil','closed_book','thumbs_up','eye','balloon']
-        print(labels[np.argmax(prediction)])
+        #print(labels[np.argmax(prediction)])
         cv2.imshow("Prediction", frame)
         key=cv2.waitKey(1)
         if key == ord('q'):
@@ -35,11 +35,14 @@ for i in range (30):
 
         #Numpy array
         matrix = np.vstack((matrix, prediction))
+        average = np.average(matrix, axis=0)    
+        if matrix.shape[0] % 30 == 0:
+                print(emojize('":' +labels[average.argmax(axis=0)]+':"'))
+
 
 video.release()
 cv2.destroyAllWindows()
-average = np.average(matrix, axis=0)
-print(emojize('":' +labels[average.argmax(axis=0)]+':"'))
+
 
 
 
