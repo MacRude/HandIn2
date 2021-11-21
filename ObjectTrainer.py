@@ -39,7 +39,8 @@ while True:
         average = np.average(matrix, axis=0) 
         print(average)   
         if matrix.shape[0] % 30 == 0: #.shape returns a tuple, so access first index of tuple and see if modulo 30 == 0.
-                print(emojize('":' +labels[average.argmax(axis=0)]+':"')) #Finds the index of the higest average confidence class and pass that and print the corresponding index of label 
+                emoj = labels[average.argmax(axis=0)]
+                print(emojize('":' + emoj +':"')) #Finds the index of the higest average confidence class and pass that and print the corresponding index of label 
                 average = np.zeros([1,9])
 
 
