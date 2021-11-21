@@ -1,3 +1,4 @@
+from re import A
 import cv2
 import numpy as np
 from PIL import Image
@@ -35,9 +36,11 @@ while True:
 
         #Numpy array
         matrix = np.vstack((matrix, prediction))
-        average = np.average(matrix, axis=0)    
+        average = np.average(matrix, axis=0) 
+        print(average)   
         if matrix.shape[0] % 30 == 0: #.shape returns a tuple, so access first index of tuple and see if modulo 30 == 0.
                 print(emojize('":' +labels[average.argmax(axis=0)]+':"')) #Finds the index of the higest average confidence class and pass that and print the corresponding index of label 
+                average = np.zeros([1,9])
 
 
 video.release()
