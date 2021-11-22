@@ -23,6 +23,7 @@ def generateLabelList(path):
     labels = list(label_dictionary.values())
     return labels
 
+labels = generateLabelList('trained_models/10classes') #['mobile_phone', 'keyboard','chair','grinning_face','pencil','closed_book','thumbs_up','eye','balloon']
 
 while True:
         _, frame = video.read()
@@ -37,9 +38,6 @@ while True:
 
         #Calling the predict function using keras
         prediction = model.predict(img_array)
-        #print(prediction)
-        labels = generateLabelList('trained_models/10classes') #['mobile_phone', 'keyboard','chair','grinning_face','pencil','closed_book','thumbs_up','eye','balloon']
-        #print(labels[np.argmax(prediction)])
         cv2.imshow("Prediction", frame)
         key=cv2.waitKey(1)
         if key == ord('q'):
