@@ -1,5 +1,6 @@
 import server
-import ObjectTrainer
+import object_detection_model
+
 
 def greet(who='World'):
    print(f'Hello {who}!')
