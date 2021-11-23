@@ -1,10 +1,6 @@
-import server
-import object_detection_model
+from server import Server 
+from object_detection_model import ODM
 
+Server.initServer('',8888)
 
-def greet(who='World'):
-   print(f'Hello {who}!')
-
-
-if __name__ == '__main__':
-    greet('World')
+#ODM.runModel()
