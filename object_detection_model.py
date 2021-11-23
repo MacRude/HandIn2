@@ -1,10 +1,10 @@
-from re import A
 import cv2
 import numpy as np
 from PIL import Image
 from keras import models
 import tensorflow as tf
 from emoji import emojize
+
 #### Defining variables
 path = 'trained_models/10classes'
 model = models.load_model(path + '/keras_model.h5')
@@ -14,8 +14,8 @@ matrix = np.zeros([1,9])
 #### 
 def generateLabelList(path):
     label_dictionary = {}
-    a_file = open(path + '/labels.txt')
-    for line in a_file:
+    label_file = open(path + '/labels.txt')
+    for line in label_file:
         key, value = line.split()
         label_dictionary[key] = value
 
