@@ -28,8 +28,8 @@ class Server:
     #wait to accept a connection - blocking call
 			conn, addr = s.accept()
 			print('Connected with ' + addr[0] + ':' + str(addr[1]))
-			MESSAGE = ODM.runModel.emojas
-			#MESSAGE = 'sup' #For testing pickle
+			#MESSAGE = ODM.runModel.emojas #Commented out what we want to work
+			MESSAGE = 'sup' #So it works 
 			pickleMessage = pickle.dumps(MESSAGE)
 			conn.send(pickleMessage)
 			break
