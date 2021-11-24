@@ -29,6 +29,7 @@ class Server:
 			conn, addr = s.accept()
 			print('Connected with ' + addr[0] + ':' + str(addr[1]))
 			MESSAGE = ODM.runModel.emojas
+			#MESSAGE = 'sup' #For testing pickle
 			pickleMessage = pickle.dumps(MESSAGE)
 			conn.send(pickleMessage)
 			break

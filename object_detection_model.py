@@ -54,10 +54,11 @@ class ODM:
                         emojas = emojize('":' + labelIndex +':"', use_aliases=True) #Finds the index of the higest average confidence class and pass that and print the corresponding index of label 
                         print(emojas)
                         average = np.zeros([1,9])
-        return emojas
+        
 
         video.release()
         cv2.destroyAllWindows()
+    
 
 
 
