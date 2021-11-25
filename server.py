@@ -1,8 +1,7 @@
 import socket
 import pickle
 import sys
-import select
-from object_detection_model import ODM
+from Image_detection_model import ODM
 
 class Server:
 	def initServer(HOST, PORT):
@@ -28,7 +27,7 @@ class Server:
     #wait to accept a connection - blocking call
 			conn, addr = s.accept()
 			print('Connected with ' + addr[0] + ':' + str(addr[1]))
-			#MESSAGE = ODM.runModel.emojas #Commented out what we want to work
+			#MESSAGE = ODM.emojas #Commented out what we want to work
 			MESSAGE = 'sup' #So it works 
 			pickleMessage = pickle.dumps(MESSAGE)
 			conn.send(pickleMessage)
