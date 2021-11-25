@@ -46,17 +46,21 @@ class ODM:
 
                 #Numpy array
                 matrix = np.vstack((matrix, prediction))
-                average = np.average(matrix, axis=0) 
-                print(average)   
+                average = np.mean(matrix, axis=0)
+                #print(average)   
                 if matrix.shape[0] % 30 == 0: #.shape returns a tuple, so access first index of tuple and see if modulo 30 == 0.
                         labelIndex = labels[average.argmax(axis=0)]
                         emojas = emojize('":' + labelIndex +':"', use_aliases=True) #Finds the index of the higest average confidence class and pass that and print the corresponding index of label 
-                        #print(emojas)
-                        average = np.zeros([1,9])
+                        print(emojas)
+                        #print(average)
+                        matrix = np.zeros([1,9])
+                        #print(matrix)
+                        
         
 
         video.release()
         cv2.destroyAllWindows()
+
     
 
 

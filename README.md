@@ -15,3 +15,12 @@ scipy                         1.7.1
 tensorflow-macos              2.6.0
 PySocks                       1.7.1
 
+How to run:
+Run Main.py
+Open terminal
+Write: python3 client.py
+
+Altertively;
+Download/enable telnet
+Open terminal or CMD
+write: telnet localhost 8888
