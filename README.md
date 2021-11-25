@@ -1,6 +1,6 @@
 # HandIn2
 Last handin in the course Interactive Digital Systems
-
+List of dependencies:
 emoji                         1.6.1
 keras                         2.6.0
 Keras-Preprocessing           1.1.2
@@ -14,3 +14,4 @@ scikit-learn                  1.0.1
 scipy                         1.7.1
 tensorflow-macos              2.6.0
 PySocks                       1.7.1
+

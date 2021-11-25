@@ -23,7 +23,7 @@ class ODM:
         labels = list(label_dictionary.values())
         return labels
 
-    def runModel(self):
+    def runModel():
         labels = ODM.generateLabelList('trained_models/10classes') #['mobile_phone', 'keyboard','chair','grinning_face','pencil','closed_book','thumbs_up','eye','balloon']
         matrix = np.zeros([1,9])
         while True:
